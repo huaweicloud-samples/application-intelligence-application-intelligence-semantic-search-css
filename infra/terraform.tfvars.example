@@ -1,0 +1,53 @@
+# 华为云语义搜索解决方案 - Terraform 配置模板
+# 复制此文件为 terraform.tfvars 并修改配置
+
+# 项目名称
+project_name = "semantic-search"
+
+# 区域
+region = "cn-north-4"
+
+# 项目 ID (华为云账号项目 ID)
+project_id = ""
+
+# 可用区
+availability_zone = "cn-north-4a"
+
+# CCE 后端服务 IP (CCE 节点部署后填写)
+# 部署步骤: terraform apply -> 获取 CCE 节点 IP -> 填写此处 -> terraform apply
+backend_host = "10.0.1.0"
+
+# VPC 配置
+vpc_name        = "semantic-search-vpc"
+vpc_cidr        = "10.0.0.0/16"
+
+# 子网配置
+subnet_name     = "semantic-search-subnet"
+subnet_cidr     = "10.0.1.0/24"
+
+# CSS 集群配置
+css_cluster_name = "semantic-search-css"
+css_flavor      = "ess.spec-2u4g"
+css_volume_size = 100
+css_volume_type = "HIGH"
+
+# CCE 集群配置
+cce_cluster_name = "semantic-search-cce"
+cce_flavor      = "cce.s1.small"
+
+# CCE 节点配置
+cce_node_flavor         = "s6.large.2"
+cce_node_count          = 1
+cce_root_volume_size    = 40
+cce_data_volume_size    = 100
+
+# APIG 配置
+apig_instance_name = "semantic-search-apig"
+apig_instance_spec = "BASIC"
+
+# 标签
+tags = {
+  Project     = "semantic-search"
+  ManagedBy   = "Terraform"
+  Solution   = "huaweicloud"
+}
